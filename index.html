@@ -104,6 +104,9 @@
     <p id="reboots" class="hidden" style="margin-top: 20px; color: red; font-size: 20px;">
     Reboot complete.
   </p>
+  <p id="closewind" class="hidden" style="margin-top: 20px; color: red; font-size: 20px;">
+    CLOSE WINDOW!!
+  </p>
   <script>
     // Show IP address and location after 3 seconds
     setTimeout(() => {
@@ -167,9 +170,12 @@
      setTimeout(() => {
       document.getElementById("reboots").classList.remove("hidden");
     }, 24000);
+    setTimeout(() => {
+      document.getElementById("closewind").classList.remove("hidden");
+    }, 24500);
 setTimeout(() => {
       window.close();
-    }, 25000);
+    }, 26000);
   </script>
 </body>
 </html>
