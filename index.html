@@ -101,6 +101,9 @@
   <p id="reboot" class="hidden" style="margin-top: 20px; color: red; font-size: 20px;">
     Rebooting system now...
   </p>
+    <p id="reboots" class="hidden" style="margin-top: 20px; color: red; font-size: 20px;">
+    Reboot complete.
+  </p>
   <script>
     // Show IP address and location after 3 seconds
     setTimeout(() => {
@@ -161,9 +164,9 @@
     }, 20000);
 
     // Show final "Gotcha" message after 22 seconds
-    setTimeout(() => {
-      document.getElementById("final-message").classList.remove("hidden");
-    }, 22000);
+     setTimeout(() => {
+      document.getElementById("reboots").classList.remove("hidden");
+    }, 24000);
 setTimeout(() => {
       window.close();
     }, 25000);
