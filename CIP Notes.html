@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You've Been Hacked</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      padding: 20px;
+      animation: flicker 0.1s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { background-color: black; }
+      50% { background-color: darkgray; }
+    }
+    #warning {
+      font-size: 24px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .hidden {
+      visibility: hidden;
+    }
+    .glitch {
+      position: relative;
+      color: lime;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+    }
+    .glitch::before {
+      animation: glitch1 1s infinite;
+      color: red;
+    }
+    .glitch::after {
+      animation: glitch2 1s infinite;
+      color: blue;
+    }
+    @keyframes glitch1 {
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(-2px, -2px); }
+      40% { transform: translate(2px, 2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes glitch2 {
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, -2px); }
+      80% { transform: translate(-2px, 2px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="warning">WARNING: Your Device Has Been Compromised!</h1>
+  <p>Tracking your IP address...</p>
+  <p id="ip-display" class="hidden">
+    <strong>Your IP Address:</strong> 192.168.12.34<br>
+    <strong>Location:</strong> Karnataka, India
+  </p>
+  <p id="dont-close" class="hidden" style="margin-top: 20px; font-size: 18px; color: red;">
+    Don't close the tab!
+  </p>
+  <p id="downloading" class="hidden" style="margin-top: 20px;">
+    Downloading files...
+  </p>
+  <p id="extracting" class="hidden" style="margin-top: 10px;">
+    Extracting files, code #01000100
+  </p>
+  <p id="files-downloaded" class="hidden" style="margin-top: 20px;">
+    Files downloaded.
+  </p>
+  <p id="email-update" class="hidden" style="margin-top: 20px;">
+    Email sent to unauthorized72@knsm2
+  </p>
+  <p id="phone-update" class="hidden">
+    Phone number unchanged.
+  </p>
+  <p id="device-lock" class="hidden" style="margin-top: 20px;">
+    Device lock being changed, reading Face ID, reading Fingerprint ID...
+  </p>
+  <p id="device-lock-final" class="hidden" style="margin-top: 20px;">
+    Device lock changed, reading Face ID complete, reading Fingerprint ID complete.
+  </p>
+  <div style="width: 300px; height: 20px; border: 2px solid lime; margin: auto; margin-top: 20px;">
+    <div id="progress-bar" style="width: 0; height: 100%; background-color: lime;"></div>
+  </div>
+  <p id="reboot" class="hidden" style="margin-top: 20px; color: red; font-size: 20px;">
+    Rebooting system now...
+  </p>
+  <script>
+    // Show IP address and location after 3 seconds
+    setTimeout(() => {
+      document.getElementById("ip-display").classList.remove("hidden");
+    }, 3000);
+
+    // Show "Don't close the tab" after 5 seconds
+    setTimeout(() => {
+      document.getElementById("dont-close").classList.remove("hidden");
+    }, 5000);
+
+    // Show "Downloading files" after 7 seconds
+    setTimeout(() => {
+      document.getElementById("downloading").classList.remove("hidden");
+    }, 7000);
+
+    // Show "Extracting files" after 9 seconds
+    setTimeout(() => {
+      document.getElementById("extracting").classList.remove("hidden");
+    }, 9000);
+
+    // Show "Files downloaded" after 11 seconds
+    setTimeout(() => {
+      document.getElementById("files-downloaded").classList.remove("hidden");
+    }, 11000);
+
+    // Show "Email updated" and "Phone number unchanged" after 13 seconds
+    setTimeout(() => {
+      document.getElementById("email-update").classList.remove("hidden");
+      document.getElementById("phone-update").classList.remove("hidden");
+    }, 13000);
+
+    // Show "Device lock being changed" after 15 seconds
+    setTimeout(() => {
+      document.getElementById("device-lock").classList.remove("hidden");
+    }, 15000);
+
+    // Show final device lock update after 18 seconds
+    setTimeout(() => {
+      document.getElementById("device-lock-final").classList.remove("hidden");
+    }, 18000);
+
+    // Progress bar simulation
+    let progress = 0;
+    const progressBar = document.getElementById("progress-bar");
+    const progressInterval = setInterval(() => {
+      if (progress < 100) {
+        progress += 5;
+        progressBar.style.width = progress + "%";
+      } else {
+        clearInterval(progressInterval);
+      }
+    }, 200);
+
+    // Show reboot message after 20 seconds
+    setTimeout(() => {
+      document.getElementById("reboot").classList.remove("hidden");
+    }, 20000);
+
+    // Show final "Gotcha" message after 22 seconds
+    setTimeout(() => {
+      document.getElementById("final-message").classList.remove("hidden");
+    }, 22000);
+setTimeout(() => {
+      window.close();
+    }, 25000);
+  </script>
+</body>
+</html>
